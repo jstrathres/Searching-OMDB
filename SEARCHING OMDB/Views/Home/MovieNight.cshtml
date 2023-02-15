@@ -1,0 +1,36 @@
+﻿@model List<MovieModel>
+
+<h1>Welcome to Blockbuster Video!</h1>
+
+<form asp-method="post" asp-action="MovieNight">
+    <p>Enter first movie title:</p>
+    <input type="text" name="title1" />
+
+
+    <p>Enter second movie title:</p>
+    <input type="text" name="title2" />
+
+
+    <p>Enter third movie title:</p>
+    <input type="text" name="title3" />
+
+    <input type="submit" class="btn btn-primary" />
+</form>
+
+@{
+    if (Model != null)
+    {
+        foreach(MovieModel m in Model)
+        {
+            <div class ="card" style="width: 25rem;">
+            <h1 class="card-header">@m.Title</h1>
+            <img src="@m.Poster" />
+            <p>Directed by @m.Director</p>
+            <p class="card-footer">@m.Plot</p>
+            <p>Staring @m.Actors</p>
+            </div>
+        }      
+    }
+}
+ 
+

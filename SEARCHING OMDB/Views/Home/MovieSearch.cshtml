@@ -1,0 +1,26 @@
+﻿@model MovieModel
+
+<h1>Welcome to Blockbuster Video!</h1>
+
+@*FORM*@
+<form asp-method="post" asp-action="MovieSearch">
+   
+    <p>Enter your movie title:</p>
+    <input type="text" name="Title" />
+
+    <input type="submit" />
+</form>
+
+@*DISPLAY*@
+@{
+    if(Model != null)
+    {
+            <div class="card" style="width: 25rem;">
+            <h1 class="card-header">@Model.Title</h1>
+            <img src="@Model.Poster"/>
+            <p>Directed by @Model.Director</p>
+            <p class="card-footer">@Model.Plot</p>
+            <p>Staring @Model.Actors</p>  
+            </div>
+    }
+}
